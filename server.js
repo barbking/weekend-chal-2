@@ -26,10 +26,13 @@ app.get( '/', function( req, res ){
 app.post('/dataToCalc', function (req, res){
   console.log('in post calc route');
   // all the work
+  
+  setTimeout(function(){
   sum = calcResult(req.body.x,req.body.y,req.body.type);
   // console.log(calcResult(req.body.x,req.body.y, req.body.type));
   console.log(sum);
   res.sendStatus(200);
+  }, 3000);
 });
 
 //respond to client get request

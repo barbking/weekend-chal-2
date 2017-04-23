@@ -51,7 +51,7 @@ function method(){
 
 function calcFunc(){
   // convert into number1, method and number2 to send to calculator
-
+  $('#total').text("The computer is thinking........");
   var number1 = $('.number1').text();
   var number2= $('.number2').text();
   // var calcMethod = '';
@@ -73,6 +73,7 @@ function calcFunc(){
   });//end of ajax
   // getResults();
 }//end of calcFunc func
+
 
   function getResults(){
     //get calcResult
