@@ -1,20 +1,39 @@
 $(document).ready(onReady);
 
+  var calcMethod ='';
+
+
 function onReady(){
   console.log('in ready');
-  $('#add').on('click',calcFunc);
-  $('#subtract').on('click',calcFunc);
-  $('#multiply').on('click',calcFunc);
-  $('#divide').on('click',calcFunc);
+  $('.button').on('click',convertInput);
+  $('.method').on('click',method);
+  // $('#add').on('click',stringToNum);
+  // $('#subtract').on('click',stringToNum);
+  // $('#multiply').on('click',stringToNum);
+  // $('#divide').on('click',stringToNum);
+  $('#equal').on('click',calcFunc);
+  $('#clear').on('click',clear);
+  //
+
+
 } //end of onReady func
 
-//get input values and button click values
-function calcFunc(){
-  console.log('in calcFunc');
-  var number1 = $('#number1').val();
-  var number2= $('#number2').val();
-  var calcMethod = '';
-  console.log('number1=',number1, 'number2=',number2, 'calcMethod=','calcMethod');
+
+
+//on number or method button click, create string of numbers/method in html #input
+function convertInput() {
+  input = $(this).text();//get text value from botton or method clicked
+  $('.input').append(input);//append text value to #input on dom
+  // number2 = $('.input').text();
+  // // var numString = $('#input').text();//grab final numbers/method in #input
+  // return number2;//return string to send to stringToNum func
+}
+
+function method(){
+  var input = $(this).text();//get text value from botton or method clicked
+  $('#method').append(input);//add method symbol to dom
+  $('span').toggleClass("input");//toggle class on span so second set of numbers are different
+
 
   if ($(this).data('name')==='add'){
       calcMethod = 'add';
@@ -25,8 +44,17 @@ function calcFunc(){
     } else {
       calcMethod = 'divide';
     }
-  console.log('calcMethod after loop:',calcMethod);
 
+  return calcMethod;
+
+}
+
+function calcFunc(){
+  // convert into number1, method and number2 to send to calculator
+
+  var number1 = $('.number1').text();
+  var number2= $('.number2').text();
+  // var calcMethod = '';
   var sendInputData = {
     x: number1,
     y: number2,
@@ -55,8 +83,13 @@ function calcFunc(){
       success: function(res){
         console.log('sucess');
         console.log( 'back from serv with:', res.totalSum);
-        $('.results').empty();
-        $('.results').append('TOTAL = '+res.totalSum);
+        $('#total').empty();
+        $('#total').append(' = ' + res.totalSum);
       }
     });//end of ajax GET
   }//end of getResults func
+
+  function clear (){
+    $('.number1, .number2, #method, #total').empty();
+
+  }

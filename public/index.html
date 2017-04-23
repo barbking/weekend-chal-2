@@ -7,21 +7,40 @@
     <script src="client.js" charset="utf-8"></script>
     <link rel="stylesheet" href="style.css">
   </head>
-  
+
   <body>
     <div class="container">
-      <p>Enter a number:</p>
-      <input id="number1" type="text" name="number" value=""><br>
-      <p>Enter a number:</p>
-      <input id="number2" type="text" name="number" value=""><br>
-      <p></p>
-      <button type="button" id="add" data-name="add">Add</button>
-      <button type="button" id="subtract" data-name="subtract">Subtract</button>
-      <button type="button" id="multiply" data-name="multiply">Multiply</button>
-      <button type="button" id="divide" data-name="divide">Divide</button>
+
+    <div class="clear">
+      <p><span class="number1 input"></span><p id="method"></p><span class="number2"></span></p>
+      <p id="total"></p>
     </div>
 
-    <div class="results">
+
+
+      <button type="button" class="button" id="seven" data-name="seven">7</button>
+      <button type="button" class="button" id="eight" data-name="eight">8</button>
+      <button type="button" class="button" id="nine" data-name="nine">9</button><br>
+
+      <button type="button" class="button" id="four" data-name="four">4</button>
+      <button type="button" class="button" id="five" data-name="five">5</button>
+      <button type="button" class="button" id="six" data-name="six">6</button><br>
+
+      <button type="button" class="button" id="one" data-name="one">1</button>
+      <button type="button" class="button" id="two" data-name="two">2</button>
+      <button type="button" class="button" id="three" data-name="three">3</button><br>
+
+      <button type="button" class="button" id="zero" data-name="zero">0</button><br>
+
+      <button type="button"  class="method" id="add" data-name="add">&#43</button>
+      <button type="button"  class="method" id="subtract" data-name="subtract">&#45</button>
+      <button type="button"  class="method" id="multiply" data-name="multiply">&#215</button>
+      <button type="button"  class="method" id="divide" data-name="divide">&#247</button>
+      <button type="button"  id="equal" data-name="equal">=</button>
+      <button type="button"  id="clear">CLEAR</button>
+
+
+
     </div>
 
   </body>
