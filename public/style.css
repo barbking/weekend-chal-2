@@ -6,10 +6,11 @@ body {
 }
 
 button {
- padding: 16px 16px;
- font-size: 20px;
- margin: 4px 2px;
- background-color: #468dcd;
+
+  padding: 16px 16px;
+  font-size: 20px;
+  margin: 4px 2px;
+  background-color: #468dcd;
 }
 
 .calculator {
@@ -18,12 +19,14 @@ button {
   width: 50%;
   border: 3px solid #ffed87;
   padding: 10px;
+  border-radius: 20px;
 }
 
 .clear {
   height: 100px;
   margin: auto;
   width: 50%;
+  border-radius: 20px;
   /*border: 3px solid #ffed87;*/
 }
 
@@ -32,14 +35,17 @@ table {
   text-align: center;
   /*padding: 20px 60px 20px 80px;*/
   background-color: #6a6a6a;
+  border: 3px solid #ffed87;
+  border-radius: 10px;
   }
 
 td {
-    border: 3px solid #ffed87;
-    height: 40px;
-    width: 50px;
-    /*background-color: white;*/
-    padding: 10px;
+  /*border: 3px solid #ffed87;*/
+  height: 40px;
+  width: 50px;
+  /*background-color: white;*/
+  padding: 10px;
+  border-radius: 10px;
 }
 
 #method{
@@ -48,4 +54,5 @@ td {
 
 #total{
   width:200px;
+  text-align: left;
 }

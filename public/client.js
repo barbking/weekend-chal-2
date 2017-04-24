@@ -26,7 +26,7 @@ function method(){
   $('span').toggleClass("input");//toggle class on span so second set of numbers in different span
 
   if (click === 2) {
-    $('#total').text('error: only one method allowed');//error if clicked more than once
+    $('#total').text('ERROR: only one operation allowed!');//error if clicked more than once
       $('span').toggleClass("input");//toggle class on span so second set of numbers in different span
       click=0;
   } else if ($(this).data('name')==='add'){
@@ -43,7 +43,7 @@ return calcMethod;//return math opertor method to use in calcFunc
 
 function calcFunc(){
   // convert into number1, method and number2 to send to calculator
-  $('#total').text("The computer is thinking...");
+  $('#total').text("computing");
 
   var number1 = $('.number1').text();
   var number2= $('.number2').text();
