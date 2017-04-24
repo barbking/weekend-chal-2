@@ -1,57 +1,50 @@
 $(document).ready(onReady);
 
   var calcMethod ='';
+  var click = 0;
 
 
 function onReady(){
   console.log('in ready');
   $('.button').on('click',convertInput);
   $('.method').on('click',method);
-  // $('#add').on('click',stringToNum);
-  // $('#subtract').on('click',stringToNum);
-  // $('#multiply').on('click',stringToNum);
-  // $('#divide').on('click',stringToNum);
   $('#equal').on('click',calcFunc);
   $('#clear').on('click',clear);
-  //
-
-
 } //end of onReady func
 
-
-
-//on number or method button click, create string of numbers/method in html #input
+//on number or method button click, aooend table on dom
 function convertInput() {
   input = $(this).text();//get text value from botton or method clicked
-  $('.input').append(input);//append text value to #input on dom
-  // number2 = $('.input').text();
-  // // var numString = $('#input').text();//grab final numbers/method in #input
-  // return number2;//return string to send to stringToNum func
+  $('.input').append(input);//append text value to tableon dom
 }
 
+//on method(math operator) click, only allow one click, return method clicked
 function method(){
-  var input = $(this).text();//get text value from botton or method clicked
+  click ++;//button click counter
+  var input = $(this).text();//get text value from button or method clicked
   $('#method').append(input);//add method symbol to dom
-  $('span').toggleClass("input");//toggle class on span so second set of numbers are different
+  $('span').toggleClass("input");//toggle class on span so second set of numbers in different span
 
-
-  if ($(this).data('name')==='add'){
-      calcMethod = 'add';
-    } else if ($(this).data('name')==='subtract'){
-       calcMethod  = 'subtract';
-    } else if ($(this).data('name')==='multiply'){
-      calcMethod = 'multiply';
-    } else {
-      calcMethod = 'divide';
-    }
-
-  return calcMethod;
-
+  if (click === 2) {
+    $('#total').text('error: only one method allowed');//error if clicked more than once
+      $('span').toggleClass("input");//toggle class on span so second set of numbers in different span
+      click=0;
+  } else if ($(this).data('name')==='add'){
+    calcMethod = 'add';
+  } else if ($(this).data('name')==='subtract'){
+     calcMethod  = 'subtract';
+  } else if ($(this).data('name')==='multiply'){
+    calcMethod = 'multiply';
+  } else {
+    calcMethod = 'divide';
+  }
+return calcMethod;//return math opertor method to use in calcFunc
 }
 
 function calcFunc(){
   // convert into number1, method and number2 to send to calculator
-  $('#total').text("The computer is thinking........");
+  $('#total').text("The computer is thinking...");
+
   var number1 = $('.number1').text();
   var number2= $('.number2').text();
   // var calcMethod = '';
@@ -85,12 +78,15 @@ function calcFunc(){
         console.log('sucess');
         console.log( 'back from serv with:', res.totalSum);
         $('#total').empty();
-        $('#total').append(' = ' + res.totalSum);
+        $('#total').append('=   ' + res.totalSum);
       }
     });//end of ajax GET
   }//end of getResults func
 
+  //reset dom values/classes if clear button clicked
   function clear (){
-    $('.number1, .number2, #method, #total').empty();
-
-  }
+    $('.number1, .number2, #method, #total').empty();//clear button empty prev numbers
+    $('.number1').addClass("input");//reset numbe1 class
+    $('.number2').removeClass("input");//reset number2 class
+    click=0;//reset method button counter
+  }//end of clear func

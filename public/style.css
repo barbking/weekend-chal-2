@@ -1,9 +1,51 @@
+body {
+  width: 800px;
+  background-image: url(http://www.wallpaperskid.com/wallpaper-images/97/cool-math-backgrounds-funny-YbLhx9.jpg);
+  background-size:  cover;
+  font-size: 20px;
+}
+
 button {
  padding: 16px 16px;
  font-size: 20px;
  margin: 4px 2px;
+ background-color: #468dcd;
 }
 
-.container {
-  height: 400px;
+.calculator {
+  height: 350px;
+  margin: auto;
+  width: 50%;
+  border: 3px solid #ffed87;
+  padding: 10px;
+}
+
+.clear {
+  height: 100px;
+  margin: auto;
+  width: 50%;
+  /*border: 3px solid #ffed87;*/
+}
+
+table {
+  table-layout:fixed;
+  text-align: center;
+  /*padding: 20px 60px 20px 80px;*/
+  background-color: #6a6a6a;
+  }
+
+td {
+    border: 3px solid #ffed87;
+    height: 40px;
+    width: 50px;
+    /*background-color: white;*/
+    padding: 10px;
+}
+
+#method{
+  width:20px;
+}
+
+#total{
+  width:200px;
 }

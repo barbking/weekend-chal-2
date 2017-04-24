@@ -3,8 +3,8 @@ var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
 var app = express();
-//get a module by using require()
-var calcResult = require('./calculator');
+
+var calcResult = require('./calculator'); //get calculator module
 var sum = '';
 
 // uses
@@ -25,11 +25,9 @@ app.get( '/', function( req, res ){
 //receive data, use in calc module
 app.post('/dataToCalc', function (req, res){
   console.log('in post calc route');
-  // all the work
   
-  setTimeout(function(){
+  setTimeout(function(){ //setting timer to delay calculation results on dom
   sum = calcResult(req.body.x,req.body.y,req.body.type);
-  // console.log(calcResult(req.body.x,req.body.y, req.body.type));
   console.log(sum);
   res.sendStatus(200);
   }, 3000);
